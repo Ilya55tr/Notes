@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>notes</title>
+</head>
+<body>
+<H1>Заметки:</H1>
+<div th:each="note, stat : ${notes}">
+    <a th:href="@{'/notes/' + ${note.id()}}" th:text="|${stat.index+1} . ${note.noteName()}|">note</a>
+</div>
+<br>
+<form th:action="@{/notes/create}" method="get">
+    <button type="submit">Создать заметку</button>
+</form>
+</body>
+</html>

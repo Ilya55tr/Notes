@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>task</title>
+</head>
+<body>
+<form th:action="@{/tasks/{id}/update(id=${task.id()})}" method="post" th:object="${task}">
+    <h1>Задача</h1><br>
+    <label for="taskName">Название:
+        <input id="taskName" type="text" name="taskName" th:value="*{taskName()}">
+    </label><br>
+    <label for="taskText">Текст:
+        <input id="taskText" type="text" name="taskText" th:value="*{taskText()}">
+    </label>
+    <div>
+        <label for="note">Заметка:
+            <select id="note" name="noteId">
+                <option th:each="note: ${notes}"
+                th:value="${note.id()}"
+                th:selected="${note.id() == task.noteDto().id()}"
+                th:text="${note.noteName()}">
+                    Заметка
+                </option>
+            </select>
+        </label>
+    </div>
+    <button type="submit">изменить задачу</button>
+</form>
+<br>
+<form th:action="@{/tasks/{id}/delete(id=${task.id()})}" method="post">
+    <button type="submit">Удалить задачу</button>
+</form>
+</body>
+</html>
