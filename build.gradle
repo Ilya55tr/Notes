@@ -40,13 +40,10 @@ dependencies {
 	testCompileOnly("org.projectlombok:lombok:1.18.38")
 	testAnnotationProcessor("org.projectlombok:lombok:1.18.38")
 
-	testImplementation 'org.testcontainers:junit-jupiter:1.20.3'
-	testImplementation 'org.testcontainers:postgresql:1.20.3'
 
 	implementation 'org.liquibase:liquibase-core'
 
-	// In-memory база
-	testRuntimeOnly 'com.h2database:h2'
+
 
 }
 
