@@ -21,22 +21,7 @@ public class Task {
     @Column(name = "text")
     String taskText;
 
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(optional = false)
     @JoinColumn(nullable = false, name = "note_id")
     Note note;
-
-//    public void addTask(){
-//        note.html.addTask(this);
-//    }
-//
-//    public void removeTask(){
-//        note.html.removeTask(this);
-//    }
-
-
-
-
-
-
-
 }
